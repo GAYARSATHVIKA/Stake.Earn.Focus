@@ -137,16 +137,6 @@ export default function Landing({ onStart }: LandingProps) {
         <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-accent-secondary/15 blur-[150px] rounded-full animate-float pointer-events-none animate-delay-2000" />
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="f-glass rounded-[48px] p-16 border-white/5 grid grid-cols-1 md:grid-cols-3 gap-16 shadow-3xl bg-white/[0.02]">
-            <StatCounter value="1.5M" suffix="+" label="Tokens Staked" />
-            <StatCounter value="50K" suffix="+" label="Protocol Hours" />
-            <StatCounter value="15K" suffix="+" label="Global Builders" />
-          </div>
-        </div>
-      </section>
 
       {/* How It Works */}
       <section className="py-32 relative overflow-hidden">
