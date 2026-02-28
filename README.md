@@ -1,10 +1,10 @@
-🧠 Decentralized Study Rooms (FocusRoom)
+🧠**Decentralized Study Rooms (FocusRoom)**
 
 A production-ready Web3 accountability platform built on the Monad Testnet that incentivizes deep focus through financial staking and on-chain rewards.
 
 Users stake MON tokens to join time-bound focus rooms. Participants who complete the session earn rewards from those who quit early — plus a unique NFT badge as proof of discipline.
 
-🌍 Live Overview
+🌍**Live Overview**
 
 Decentralized Study Rooms combines:
 
@@ -20,8 +20,8 @@ Decentralized Study Rooms combines:
 
 The platform gamifies focus sessions while maintaining fairness, transparency, and decentralization.
 
-🚀 Features
-🏠 Smart Contract (FocusRoom.sol)
+🚀 **Features
+🏠 Smart Contract (FocusRoom.sol)**
 
 Create time-bound study rooms
 
@@ -37,7 +37,7 @@ Reentrancy protection
 
 Fully on-chain logic
 
-💻 Frontend
+💻 **Frontend**
 
 Wallet connection (MetaMask)
 
@@ -51,7 +51,7 @@ Real-time blockchain polling
 
 Responsive modern UI
 
-🏗️ Architecture
+🏗️ **Architecture**
 User Wallet (MetaMask)
         ↓
 Frontend (React + Ethers v6)
@@ -86,7 +86,7 @@ Zustand (state management)
 
 React Hot Toast
 
-🌐 Network
+**🌐 Network**
 
 Monad Testnet
 
@@ -131,7 +131,7 @@ Reward share
 
 NFT Badge
 
-🏆 NFT Badge
+🏆 **NFT Badge**
 
 Each successful participant receives an ERC721 NFT containing:
 
@@ -145,7 +145,7 @@ Achievement badge image
 
 This acts as a permanent on-chain proof of discipline.
 
-🧪 Smart Contract Security
+🧪 **Smart Contract Security**
 
 ✅ ReentrancyGuard protection
 
@@ -157,7 +157,7 @@ This acts as a permanent on-chain proof of discipline.
 
 ✅ No centralized admin control
 
-📦 Installation & Setup
+📦 **Installation & Setup**
 🔹 1. Clone Repository
 git clone https://github.com/GAYARSATHVIKA/Stake.Earn.Focus.git
 cd Stake.Earn.Focus
@@ -208,7 +208,7 @@ Mark completed.
 
 Claim rewards + NFT badge.
 
-📊 Reward Formula
+📊 **Reward Formula**
 Total Pool = Total Participants × Stake Amount
 Reward Per Winner = Total Pool / Winners
 
@@ -235,7 +235,7 @@ Mobile responsive layout
 
 Clean and minimal UX
 
-📁 Project Structure
+📁 **Project Structure**
 contracts/
   FocusRoom.sol
 
@@ -249,7 +249,7 @@ src/
   store/
 
 hardhat.config.ts
-🏗️ Future Improvements
+🏗️ **Future Improvements**
 
 Dynamic session duration
 
@@ -263,8 +263,7 @@ Multi-token staking support
 
 DAO governance for feature updates
 
-👤 Author
-
+👤 **Author**
 GAYARSATHVIKA
 Blockchain Developer | Web3 Builder
 
@@ -272,7 +271,7 @@ Blockchain Developer | Web3 Builder
 
 MIT License
 
-🌟 Why This Project Matters
+🌟 **Why This Project Matters**
 
 Decentralized Study Rooms transforms productivity into an economically aligned system.
 
