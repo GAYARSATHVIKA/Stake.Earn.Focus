@@ -20,21 +20,35 @@ export default function Dashboard() {
       const provider = new ethers.BrowserProvider(window.ethereum);
       const contract = new ethers.Contract(FOCUS_ROOM_ADDRESS, FOCUS_ROOM_ABI, provider);
       const counter = await contract.roomCounter();
+      const count = Number(counter);
 
       const fetchedRooms = [];
-      for (let i = 1; i <= Number(counter); i++) {
-        const roomData = await contract.rooms(i);
-        const participants = await contract.getParticipants(i);
-        fetchedRooms.push({
-          id: Number(roomData.id),
-          stakeAmount: ethers.formatEther(roomData.stakeAmount),
-          startTime: Number(roomData.startTime),
-          endTime: Number(roomData.endTime),
-          participants: participants,
-          distributed: roomData.distributed
-        });
+      // Try fetching room 0 to counter to be safe with indexing
+      for (let i = 0; i <= count; i++) {
+        try {
+          const roomData = await contract.rooms(i);
+          // Only add if ID is non-zero (mapping default is 0)
+          if (roomData.id && Number(roomData.id) !== 0) {
+            const participants = await contract.getParticipants(i);
+            fetchedRooms.push({
+              id: Number(roomData.id),
+              stakeAmount: ethers.formatEther(roomData.stakeAmount),
+              startTime: Number(roomData.startTime),
+              endTime: Number(roomData.endTime),
+              participants: participants,
+              distributed: roomData.distributed
+            });
+          }
+        } catch (err) {
+          console.warn(`Failed to fetch room ${i}:`, err);
+        }
       }
-      setRooms(fetchedRooms.reverse());
+
+      // Filter out duplicates just in case and sort by ID descending
+      const uniqueRooms = Array.from(new Map(fetchedRooms.map(r => [r.id, r])).values())
+        .sort((a, b) => b.id - a.id);
+
+      setRooms(uniqueRooms);
     } catch (error) {
       console.error("Error fetching rooms:", error);
     }
@@ -127,7 +141,7 @@ export default function Dashboard() {
           </div>
           <div>
             <span className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1 block">Network Status</span>
-            <p className="text-2xl font-black">{rooms.length} <span className="text-sm font-medium text-white/20 uppercase tracking-normal">Active</span></p>
+            <p className="text-2xl font-black">{rooms.length} <span className="text-sm font-medium text-white/20 uppercase tracking-normal">Instances</span></p>
           </div>
         </div>
       </div>

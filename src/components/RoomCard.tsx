@@ -34,8 +34,16 @@ export default function RoomCard({ room, onJoin }: RoomCardProps) {
           <span className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] mb-1">Instance Control</span>
           <span className="text-3xl font-display font-black tracking-tighter">#{room.id}</span>
         </div>
-        <div className="px-5 py-2 rounded-full f-glass border-accent-primary/20 bg-accent-primary/5">
-          <span className="text-[10px] font-black text-accent-primary uppercase tracking-[0.2em] animate-pulse">Live Tracking</span>
+        <div className={`px-5 py-2 rounded-full f-glass border-white/5 ${room.distributed ? 'bg-emerald-500/10 text-emerald-400' :
+            timeLeft > 0 ? 'bg-accent-primary/5 text-accent-primary' :
+              'bg-amber-500/10 text-amber-400'
+          }`}>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em]">
+            {room.distributed ? 'Finalized' : timeLeft > 0 ? 'Live Tracking' : 'Awaiting Claim'}
+          </span>
+          {timeLeft > 0 && !room.distributed && (
+            <span className="ml-2 inline-block w-1.5 h-1.5 bg-accent-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(139,92,246,0.5)]" />
+          )}
         </div>
       </div>
 

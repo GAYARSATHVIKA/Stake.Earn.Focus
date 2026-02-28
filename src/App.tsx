@@ -15,14 +15,19 @@ export default function App() {
   const { activeRoomId } = useAppStore();
   const [currentView, setCurrentView] = useState<'landing' | 'dashboard' | 'active' | 'result' | 'leaderboard' | 'profile'>('landing');
 
+  const prevActiveRoomId = React.useRef<number | null>(null);
+
   useEffect(() => {
     if (!isConnected) {
       setCurrentView('landing');
-    } else if (activeRoomId) {
+    } else if (activeRoomId && activeRoomId !== prevActiveRoomId.current) {
+      // Only auto-redirect if we just joined a room
       setCurrentView('active');
-    } else if (currentView === 'landing' || currentView === 'active') {
+    } else if (!activeRoomId && currentView === 'active') {
+      // Redirect to dashboard if room session ended/quit
       setCurrentView('dashboard');
     }
+    prevActiveRoomId.current = activeRoomId;
   }, [isConnected, activeRoomId]);
 
   const renderView = () => {
