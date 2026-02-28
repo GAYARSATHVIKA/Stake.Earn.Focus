@@ -1,70 +1,281 @@
-# Decentralized Study Rooms (FocusRoom)
+🧠 Decentralized Study Rooms (FocusRoom)
 
-A production-ready Web3 accountability platform built on the Monad blockchain. Users stake tokens to join focus rooms, stay productive for the duration, and earn rewards from those who quit early.
+A production-ready Web3 accountability platform built on the Monad Testnet that incentivizes deep focus through financial staking and on-chain rewards.
 
-## 🚀 Tech Stack
+Users stake MON tokens to join time-bound focus rooms. Participants who complete the session earn rewards from those who quit early — plus a unique NFT badge as proof of discipline.
 
-- **Blockchain**: Solidity, Hardhat, OpenZeppelin, ERC721
-- **Frontend**: React (Vite), Ethers.js v6, TailwindCSS, Framer Motion
-- **State Management**: Zustand
-- **Notifications**: React Hot Toast
-- **Network**: Monad Testnet
+🌍 Live Overview
 
-## 🛠️ Setup Instructions
+Decentralized Study Rooms combines:
 
-### 1. Smart Contract Deployment
+💰 DeFi staking mechanics
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Configure your environment:
-   Create a `.env` file in the root directory:
-   ```env
-   PRIVATE_KEY=your_private_key_here
-   ```
-3. Compile the contract:
-   ```bash
-   npx hardhat compile
-   ```
-4. Deploy to Monad Testnet:
-   ```bash
-   npx hardhat run scripts/deploy.ts --network monadTestnet
-   ```
-5. Update the contract address in `src/utils/contract.ts`:
-   ```typescript
-   export const FOCUS_ROOM_ADDRESS = "YOUR_DEPLOYED_ADDRESS";
-   ```
+🎯 Productivity accountability
 
-### 2. Frontend Development
+🏆 NFT-based achievement rewards
 
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
-2. Connect your MetaMask wallet.
-3. Ensure you are on the Monad Testnet (the app will prompt you to switch).
+🔒 Trustless smart contract automation
 
-## 🎮 How to Use
+⚡ High-performance Monad blockchain
 
-1. **Connect Wallet**: Use the button in the top right corner.
-2. **Create a Room**: Set a stake amount (e.g., 0.1 MON) and create a 60-minute focus session.
-3. **Join a Room**: Browse active rooms and join by staking the required amount.
-4. **Focus**: Stay in the room until the timer ends.
-5. **Mark Completed**: Once the timer hits zero, click "Mark Completed".
-6. **Claim Rewards**: After the session, claim your original stake plus rewards from quitters, and receive your NFT badge.
-7. **Quit Early**: If you must leave, you can quit, but you will forfeit your stake to the remaining participants.
+The platform gamifies focus sessions while maintaining fairness, transparency, and decentralization.
 
-## 📜 Smart Contract Features
+🚀 Features
+🏠 Smart Contract (FocusRoom.sol)
 
-- **ReentrancyGuard**: Protection against reentrancy attacks.
-- **ERC721**: Automatic NFT badge minting upon successful completion.
-- **Reward Distribution**: Fair distribution of forfeited stakes among winners.
-- **On-Chain Timers**: Secure session management using block timestamps.
+Create time-bound study rooms
 
-## 🎨 UI/UX Highlights
+Stake MON tokens to participate
 
-- **Glassmorphism**: Modern, translucent UI components.
-- **Smooth Animations**: Powered by Framer Motion.
-- **Real-Time Sync**: Blockchain state polling every 5 seconds.
-- **Responsive Design**: Works on mobile and desktop.
+Early exit forfeits stake
+
+Automated reward distribution
+
+NFT badge minting for winners
+
+Reentrancy protection
+
+Fully on-chain logic
+
+💻 Frontend
+
+Wallet connection (MetaMask)
+
+Room creation & joining
+
+Countdown timers
+
+Reward claiming
+
+Real-time blockchain polling
+
+Responsive modern UI
+
+🏗️ Architecture
+User Wallet (MetaMask)
+        ↓
+Frontend (React + Ethers v6)
+        ↓
+FocusRoom Smart Contract (Solidity)
+        ↓
+Monad Testnet
+🛠️ Tech Stack
+🔗 Blockchain
+
+Solidity ^0.8.20
+
+Hardhat
+
+OpenZeppelin Contracts
+
+ERC721 (NFT badge minting)
+
+ReentrancyGuard
+
+🎨 Frontend
+
+React (Vite)
+
+Ethers.js v6
+
+TailwindCSS
+
+Framer Motion
+
+Zustand (state management)
+
+React Hot Toast
+
+🌐 Network
+
+Monad Testnet
+
+Chain ID: 143
+
+📜 Smart Contract Logic
+Room Creation
+
+Creator defines stake amount.
+
+Session duration = 60 minutes.
+
+Room stored on-chain with timestamp.
+
+Joining
+
+User stakes exact MON amount.
+
+Participant recorded on-chain.
+
+Completion
+
+Users must wait until session ends.
+
+If they did not exit early → eligible for rewards.
+
+Early Exit
+
+User forfeits stake.
+
+Stake added to reward pool.
+
+Reward Distribution
+
+Total pool = participants × stake.
+
+Distributed equally among completed users.
+
+Each winner receives:
+
+Reward share
+
+NFT Badge
+
+🏆 NFT Badge
+
+Each successful participant receives an ERC721 NFT containing:
+
+Room completion proof
+
+On-chain metadata
+
+Unique token ID
+
+Achievement badge image
+
+This acts as a permanent on-chain proof of discipline.
+
+🧪 Smart Contract Security
+
+✅ ReentrancyGuard protection
+
+✅ Checks-Effects-Interactions pattern
+
+✅ Strict stake validation
+
+✅ On-chain timestamp validation
+
+✅ No centralized admin control
+
+📦 Installation & Setup
+🔹 1. Clone Repository
+git clone https://github.com/GAYARSATHVIKA/Stake.Earn.Focus.git
+cd Stake.Earn.Focus
+🔹 2. Install Dependencies
+npm install
+🔐 Smart Contract Deployment
+1️⃣ Configure Environment
+
+Create .env file:
+
+PRIVATE_KEY=your_private_key_here
+
+⚠️ Never commit your private key.
+
+2️⃣ Compile Contract
+npx hardhat compile
+3️⃣ Deploy to Monad Testnet
+npx hardhat run scripts/deploy.ts --network monadTestnet
+
+After deployment, copy the contract address.
+
+4️⃣ Update Frontend Contract Address
+
+In:
+
+src/utils/contract.ts
+
+Update:
+
+export const FOCUS_ROOM_ADDRESS = "YOUR_DEPLOYED_ADDRESS";
+💻 Run Frontend
+npm run dev
+
+Then open:
+
+http://localhost:5173
+🎮 How to Use
+
+Connect MetaMask.
+
+Switch to Monad Testnet.
+
+Create or join a room.
+
+Focus until timer ends.
+
+Mark completed.
+
+Claim rewards + NFT badge.
+
+📊 Reward Formula
+Total Pool = Total Participants × Stake Amount
+Reward Per Winner = Total Pool / Winners
+
+Participants who exit early lose their stake.
+
+Winners receive equal share of forfeited stakes.
+
+📡 Blockchain Details
+Property	Value
+Network	Monad Testnet
+Chain ID	143
+Currency	MON
+Standard	ERC721
+EVM Version	Paris
+🎨 UI Highlights
+
+Glassmorphism design
+
+Smooth transitions (Framer Motion)
+
+Real-time polling every 5 seconds
+
+Mobile responsive layout
+
+Clean and minimal UX
+
+📁 Project Structure
+contracts/
+  FocusRoom.sol
+
+scripts/
+  deploy.ts
+
+src/
+  components/
+  pages/
+  utils/
+  store/
+
+hardhat.config.ts
+🏗️ Future Improvements
+
+Dynamic session duration
+
+Reputation scoring system
+
+On-chain leaderboard
+
+Room privacy settings
+
+Multi-token staking support
+
+DAO governance for feature updates
+
+👤 Author
+
+GAYARSATHVIKA
+Blockchain Developer | Web3 Builder
+
+📜 License
+
+MIT License
+
+🌟 Why This Project Matters
+
+Decentralized Study Rooms transforms productivity into an economically aligned system.
+
+Instead of relying on motivation alone, users stake value on their focus. Discipline becomes rewarding, and quitting becomes costly — all enforced by transparent smart contracts.
+
+Built fully decentralized on Monad.
